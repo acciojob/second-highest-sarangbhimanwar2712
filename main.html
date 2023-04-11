@@ -10,11 +10,33 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-			Arrays.sort(arr);
-    let length = arr.length;
-    let result = arr[length-2] ;
-    return result
-			
+			// If the array is empty or has only 1 element, return -Infinity
+	  if (arr.length < 2) {
+	    return -Infinity;
+	  }
+	
+	  // Find the highest element in the array
+	  let highest = -Infinity;
+	  for (let i = 0; i < arr.length; i++) {
+	    if (arr[i] > highest) {
+	      highest = arr[i];
+	    }
+	  }
+	
+	  // Find the second highest element in the array
+  let secondHighest = -Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > secondHighest && arr[i] < highest) {
+      secondHighest = arr[i];
+    }
+  }
+
+  // If all elements are the same, return -Infinity
+  if (secondHighest === -Infinity) {
+    return -Infinity;
+  }
+
+  return secondHighest;
 		}
 
 		function Main() {
